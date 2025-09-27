@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infrastructure Queries</title>
+  <link rel="stylesheet" href="userqueries.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+
+  <div class="theme-switcher">
+    <i class="fas fa-sun"></i>
+    <label class="switch">
+      <input type="checkbox" id="theme-toggle-checkbox" />
+      <span class="slider round"></span>
+    </label>
+    <i class="fas fa-moon"></i>
+  </div>
+
+  <div class="comment-section">
+    <h2>Post Your Queries About Infrastructure</h2>
+    <textarea id="commentInput" placeholder="Type your query here..."></textarea>
+    <button id="postQueryBtn">Post Query</button>
+
+    <h3>Queries List</h3>
+    <div class="stats">
+      Total Queries: <span id="totalQueries">0</span>,
+      Answered: <span id="answeredQueries">0</span>
+    </div>
+
+    <div class="comments-list" id="commentsList"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    document.getElementById('postQueryBtn').addEventListener('click', () => {
+      const commentInput = document.getElementById('commentInput');
+      const query = commentInput.value.trim();
+      if (!query) {
+        alert('Please enter a query before posting.');
+        return;
+      }
+      let comments = JSON.parse(localStorage.getItem('userComments')) || [];
+      comments.push({ text: query, answered: false });
+      localStorage.setItem('userComments', JSON.stringify(comments));
+      commentInput.value = '';
+      loadComments();
+    });
+
+    function toggleAnswered(index) {
+      let comments = JSON.parse(localStorage.getItem('userComments')) || [];
+      comments[index].answered = !comments[index].answered;
+      localStorage.setItem('userComments', JSON.stringify(comments));
+      loadComments();
+    }
+
+    function loadComments() {
+      const commentsList = document.getElementById('commentsList');
+      const totalQueriesElem = document.getElementById('totalQueries');
+      const answeredQueriesElem = document.getElementById('answeredQueries');
+
+      commentsList.innerHTML = '';
+      const comments = JSON.parse(localStorage.getItem('userComments')) || [];
+
+      totalQueriesElem.textContent = comments.length;
+      answeredQueriesElem.textContent = comments.filter(c => c.answered).length;
+
+      comments.forEach((comment, index) => {
+        const commentElem = document.createElement('div');
+        commentElem.classList.add('comment');
+        if (comment.answered) commentElem.classList.add('answer');
+        commentElem.textContent = comment.text;
+
+        const btn = document.createElement('button');
+        btn.textContent = comment.answered ? 'Mark Unanswered' : 'Mark Answered';
+        btn.classList.add('mark-answered');
+        btn.onclick = () => toggleAnswered(index);
+        commentElem.appendChild(btn);
+
+        commentsList.appendChild(commentElem);
+      });
+    }
+
+    window.onload = () => {
+      loadComments();
+
+      const themeToggle = document.getElementById('theme-toggle-checkbox');
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.checked = true;
+      }
+      themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+          document.body.classList.add('dark-mode');
+          localStorage.setItem('theme', 'dark');
+        } else {
+          document.body.classList.remove('dark-mode');
+          localStorage.setItem('theme', 'light');
+        }
+      });
+    };
+  </script>
+</body>
+</html>

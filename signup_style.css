@@ -1,0 +1,219 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+  --bg-color: #f4f7fc;
+  --primary-color: #4a69bd;
+  --secondary-color: #6a89cc;
+  --accent-color: #f6b93b;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+  --bg-color: #1a1a2e;
+  --primary-color: #7f5af0;
+  --secondary-color: #9d8eee;
+  --accent-color: #2cb67d;
+  --text-color: #e0e0e0;
+  --card-bg: #162447;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s, color 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  background: transparent;
+  padding: 1.5rem 5rem;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-link {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.home-link:hover {
+  color: var(--primary-color);
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switcher i {
+  font-size: 1.2rem;
+  margin: 0 0.5rem;
+  color: var(--text-color);
+}
+
+/* Toggle switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 45px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 22px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: var(--primary-color);
+}
+
+input:checked + .slider:before {
+  transform: translateX(23px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 22px;
+}
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Form container */
+.login-container {
+  background-color: var(--card-bg);
+  box-shadow: var(--shadow);
+  padding: 3rem;
+  border-radius: 8px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-card h2 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.login-card p {
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+.input-group {
+  text-align: left;
+  margin-bottom: 1.25rem;
+  position: relative;
+}
+
+.input-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: var(--text-color);
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+  border-color: var(--primary-color);
+}
+
+/* Password toggle eye icon */
+.password-group {
+  position: relative;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 12px;
+  top: 38px;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  transition: color 0.3s;
+}
+
+.toggle-password:hover {
+  color: var(--primary-color);
+}
+
+.login-button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.85rem 0;
+  font-weight: 700;
+  font-size: 1.1rem;
+  width: 100%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 1rem;
+}
+
+.login-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.login-footer {
+  margin-top: 1rem;
+}
+
+.login-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.login-footer a:hover {
+  text-decoration: underline;
+}
