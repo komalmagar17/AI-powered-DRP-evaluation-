@@ -1,142 +1,124 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MDoNER | AI-Powered DPR Evaluation</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI-Powered DPR Evaluation</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
-
 <body>
-    <header>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#problem">The Problem</a></li>
-                <li><a href="#solution">Our Solution</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#map-section">Project Map</a></li>
-            </ul>
-            <div class="nav-right">
-                <div class="theme-switcher">
-                    <i class="fas fa-sun"></i>
-                    <label class="switch">
-                        <input type="checkbox" id="theme-toggle-checkbox">
-                        <span class="slider"></span>
-                    </label>
-                    <i class="fas fa-moon"></i>
-                </div>
-
-                <div class="auth-links">
-                    <a href="login.html" class="login-btn">Login</a>
-                    <a href="signup.html" class="signup-btn">Sign Up</a> 
-                </div>
-            </div>
-
-            <div class="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
-
-    
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Revolutionizing Project Evaluation in North East India</h1>
-                <p>An intelligent, AI-powered system to streamline DPR analysis, reduce delays, and accelerate regional development.</p>
-                <a href="#solution" class="cta-button">Discover the Solution</a>
-            </div>
-            <div class="hero-bg-shape"></div>
-        </section>
-
-        <section id="problem" class="content-section">
-            <h2>The Challenge with Manual Evaluation</h2>
-            <div class="card-container">
-                <div class="card">
-                    <i class="fas fa-clock-rotate-left"></i>
-                    <h3>Time-Intensive Process</h3>
-                    <p>Manual evaluation of Detailed Project Reports (DPRs) is slow, causing significant project delays.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-magnifying-glass-chart"></i>
-                    <h3>Prone to Errors</h3>
-                    <p>Human error and varying DPR quality lead to inconsistent assessments and overlooked risks.</p>
-                </div>
-                <div class="card">
-                    <i class="fas fa-file-circle-xmark"></i>
-                    <h3>Lack of Standardization</h3>
-                    <p>DPRs often lack a consistent structure, making fair and efficient comparison nearly impossible.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="solution" class="content-section highlighted">
-            <h2>Our Intelligent Solution</h2>
-            <div class="solution-content">
-                <div class="solution-text">
-                    <p>We've developed an <strong>AI-based platform</strong> that automates the analysis of DPRs. Using Natural Language Processing (NLP) and Machine Learning, our system reads and understands project reports, checks them for completeness, and predicts potential risks like cost overruns or environmental issues. It provides a standardized framework that brings consistency and efficiency to the entire evaluation process.</p>
-                </div>
-                <div class="solution-image">
-                    <img src="https://images.unsplash.com/photo-1556741533-f6acd647d2fb?auto=format&fit=crop&w=800&q=80" alt="AI Technology Illustration" />
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="content-section">
-            <h2>Key Features of the Platform</h2>
-            <div class="features-grid">
-                 <div class="feature-item">
-                    <i class="fas fa-robot"></i>
-                    <h3>Automated Evaluation</h3>
-                    <p>Ingests DPRs in PDF/text formats and evaluates them for completeness and compliance.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Inconsistency Detection</h3>
-                    <p>Uses NLP to find mismatched budgets, unrealistic timelines, and other inconsistencies.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Risk Prediction</h3>
-                    <p>Flags potential issues like environmental impact, resource shortages, or cost overruns.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-display"></i>
-                    <h3>User-Friendly Dashboard</h3>
-                    <p>Presents data and insights clearly for non-technical officials, with multilingual support.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-wifi"></i>
-                    <h3>Offline Functionality</h3>
-                    <p>Designed to work even in areas with limited or no internet connectivity.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-link"></i>
-                    <h3>Seamless Integration</h3>
-                    <p>Integrates with MDoNER's existing project management systems for a smooth workflow.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section id="map-section" class="content-section">
-            <h2>Project Development Map</h2>
-            <p class="map-subtitle">Visualizing ongoing and proposed projects across the North Eastern Region.</p>
-            <div id="map"></div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2025 MDoNER AI Evaluation System. All Rights Reserved.</p>
-        <div class="footer-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+  <header>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#problem">The Problem</a></li>
+        <li><a href="#solution">Our Solution</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#map-section">Project Map</a></li>
+      </ul>
+      <div class="nav-right">
+        <div class="theme-switcher">
+          <i class="fas fa-sun"></i>
+          <label class="switch">
+            <input type="checkbox" id="theme-toggle-checkbox" />
+            <span class="slider"></span>
+          </label>
+          <i class="fas fa-moon"></i>
         </div>
-    </footer>
+        <div class="auth-links">
+          <a href="login.html" class="login-btn">Login</a>
+          <a href="signup.html" class="signup-btn">Sign Up</a>
+        </div>
+      </div>
+      <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+  </header>
 
-    <script src="script.js"></script>
+  <section class="hero" id="problem">
+    <div class="hero-content">
+      <h1>Revolutionizing Project Evaluation in North East India</h1>
+      <div class="section-underline"></div>
+      <p>An intelligent, AI-powered system to streamline DPR analysis, reduce delays, and accelerate regional development.</p>
+      <a href="#solution" class="cta-button">Discover the Solution</a>
+    </div>
+  </section>
+
+  <main>
+    <section id="solution" class="solution-section content-section">
+      <h2 class="section-title">Our Intelligent Solution</h2>
+      <div class="section-underline"></div>
+      <div class="solution-block">
+        
+<div class="image-slider">
+  <div class="slides">
+    <img src="WhatsApp Image 2025-09-27 at 09.55.01.jpeg" alt="AI technology illustration" />
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Data analysis visualization" />
+    <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?auto=format&fit=crop&w=800&q=80" alt="Business team reviewing reports" />
+  </div>
+</div>
+
+        <div class="solution-text">
+          <p>
+            We've developed a <strong>strong AI-based platform</strong> that automates the analysis of Detailed Project Reports (DPRs).
+            Using Natural Language Processing (NLP) and Machine Learning, our system reads and understands project reports, checks them for completeness,
+            and predicts potential risks like cost overruns or environmental issues.
+            It provides a standardized framework that brings consistency and efficiency to the entire evaluation process.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="features-section content-section">
+      <h2 class="section-title">Key Features of the Platform</h2>
+      <div class="section-underline"></div>
+      <div class="card-container">
+        <div class="card">
+          <i class="fas fa-file-pdf"></i>
+          <h3>Automated Evaluation</h3>
+          <p>Ingests DPRs in PDF/text formats and evaluates them for completeness and compliance.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-search"></i>
+          <h3>Inconsistency Detection</h3>
+          <p>Uses NLP to find mismatched budgets, unrealistic timelines, and other inconsistencies.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h3>Risk Prediction</h3>
+          <p>Flags potential issues like environmental impact, resource shortages, or cost overruns.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-tachometer-alt"></i>
+          <h3>User-Friendly Dashboard</h3>
+          <p>Presents data and insights clearly for non-technical officials, with multilingual support.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-wifi"></i>
+          <h3>Offline Functionality</h3>
+          <p>Works even in areas with limited or no internet connectivity.</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-plug"></i>
+          <h3>Seamless Integration</h3>
+          <p>Integrates with existing project management systems for a smooth workflow.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="map-section" class="content-section">
+      <h2 class="section-title">Project Development Map</h2>
+      <div class="section-underline"></div>
+      <p class="map-subtitle">Visualizing ongoing and proposed projects across the North Eastern Region.</p>
+      <div id="map"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 MDoNER AI-Powered DPR Evaluation | All rights reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
