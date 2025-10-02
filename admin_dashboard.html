@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard - DPR Evaluation</title>
+  <link rel="stylesheet" href="admin_dashboard.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html" class="logo">DPR Eval</a>
+    <ul class="nav-links">
+      <li><a href="admin_dashboard.html" class="active">Dashboard</a></li>
+      <li><a href="#">Upload DPR</a></li>
+      <li><a href="#">Evaluations</a></li>
+      <li><a href="#">Risk Alerts</a></li>
+      <li><a href="#">Settings</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="theme-switcher">
+        <i class="fas fa-sun"></i>
+        <label class="switch">
+          <input type="checkbox" id="theme-toggle-checkbox" />
+          <span class="slider"></span>
+        </label>
+        <i class="fas fa-moon"></i>
+      </div>
+      <a href="admin_login.html" class="login-btn">Logout</a>
+    </div>
+  </nav>
+</header>
+
+<main class="content-section" style="padding-top: 80px;">
+  <h1 class="section-title">Admin Dashboard Overview</h1>
+  <span class="section-underline"></span>
+
+  <div class="card-container">
+    <div class="card feature-item">
+      <h3>Total DPRs Received</h3>
+      <p id="total-dprs" style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">135</p>
+    </div>
+    <div class="card feature-item">
+      <h3>Under Review</h3>
+      <p id="under-review" style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">45</p>
+    </div>
+    <div class="card feature-item">
+      <h3>Approved DPRs</h3>
+      <p id="approved-dprs" style="font-size: 2rem; font-weight: 700; color: var(--primary-color);">75</p>
+    </div>
+    <div class="card feature-item">
+      <h3>Flagged for Risks</h3>
+      <p id="flagged-risks" style="font-size: 2rem; font-weight: 700; color: var(--accent-color);">15</p>
+    </div>
+  </div>
+
+  <section class="upload-section" style="margin-top: 40px;">
+    <h2>Upload New DPR</h2>
+    <input type="file" id="dpr-upload" accept=".pdf,.txt" />
+    <button id="upload-btn" class="cta-button" style="margin-left: 15px;">Upload</button>
+    <p id="upload-status" style="margin-top: 10px; font-weight: 600;"></p>
+  </section>
+
+  <section class="risk-alerts" style="margin-top: 50px;">
+    <h2>Risk Alerts</h2>
+    <ul id="risk-list" style="list-style:none; padding-left: 0; font-weight: 600; color: var(--primary-color);">
+      <li>No risk alerts yet.</li>
+    </ul>
+  </section>
+</main>
+
+<script src="admin_dashboard.js"></script>
+</body>
+</html>
