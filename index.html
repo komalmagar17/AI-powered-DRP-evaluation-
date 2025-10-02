@@ -7,9 +7,11 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+ 
 </head>
 <body>
+  <div id="cursor-main"></div>
+  <div id="cursor-trail"></div>
   <header>
     <nav>
       <ul class="nav-links">
@@ -118,7 +120,53 @@
   <footer>
     <p>© 2025 MDoNER AI-Powered DPR Evaluation | All rights reserved</p>
   </footer>
+   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
+  <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const cursor = document.getElementById('cursor-main');
+const trail = document.getElementById('cursor-trail');
+
+let cursorX = window.innerWidth / 2;
+let cursorY = window.innerHeight / 2;
+let trailX = window.innerWidth / 2;
+let trailY = window.innerHeight / 2;
+let cursorTimeout;
+
+function moveCursor(e) {
+  cursorX = e.clientX;
+  cursorY = e.clientY;
+
+  gsap.to(cursor, { x: cursorX, y: cursorY, duration: 0.21, ease: "power3.out" });
+  gsap.to(trail, { x: trailX, y: trailY, duration: 0.45, ease: "power2.out" });
+
+  clearTimeout(cursorTimeout);
+  cursor.style.opacity = 0.8;
+  trail.style.opacity = 0.3;
+
+  cursorTimeout = setTimeout(() => {
+    cursor.style.opacity = 0.5;
+    trail.style.opacity = 0.1;
+  }, 2100);
+}
+
+window.addEventListener('mousemove', moveCursor);
+
+gsap.ticker.add(() => {
+  trailX += (cursorX - trailX) * 0.19;
+  trailY += (cursorY - trailY) * 0.19;
+  gsap.set(trail, { x: trailX, y: trailY });
+});
+
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+});
+
+  </script>
   <script src="script.js"></script>
 </body>
 </html>
